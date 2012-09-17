@@ -1,0 +1,11 @@
+name: Dosh
+main: com.gravypod.Dosh.Dosh
+version: 1.0
+author: Gravypod
+description: Loads-a-money!
+commands: 
+  money: 
+    aliases: 
+      - mon
+      - Dosh
+    discription: Money for all!
