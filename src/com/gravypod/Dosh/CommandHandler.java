@@ -22,7 +22,12 @@ public class CommandHandler implements CommandExecutor {
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String cmd, String[] args) {
-	
+		
+		CommandHandler.sender = sender;
+		CommandHandler.command = command;
+		CommandHandler.cmd = cmd;
+		CommandHandler.args = args;
+		
 		if (args.length < 1) {
 			new Bal();
 			return true;
@@ -38,11 +43,6 @@ public class CommandHandler implements CommandExecutor {
 		if (plugin.getCommands().contains(Dosh.classPath + argument + ".class")) {
 			
 			try {
-				
-				CommandHandler.sender = sender;
-				CommandHandler.command = command;
-				CommandHandler.cmd = cmd;
-				CommandHandler.args = args;
 				
 				Class.forName(Dosh.classPath + argument).newInstance();
 					
