@@ -13,7 +13,7 @@ public class ConfigHandle {
 	private final File configFile;
 	private final File moneyStore;
 
-	public ConfigHandle(Dosh plugin) {
+	public ConfigHandle(Dosh plugin, Settings settings) {
 		
 		if (!plugin.getDataFolder().exists()) {
 			plugin.getDataFolder().mkdirs();
@@ -32,7 +32,7 @@ public class ConfigHandle {
 			}
 		}
 		
-		new ConfigLoad(plugin, configFile, moneyStore);
+		new ConfigLoad(plugin, settings, configFile, moneyStore);
 		
 	}
 	

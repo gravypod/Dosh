@@ -2,15 +2,20 @@ package com.gravypod.Dosh.commands;
 
 import java.io.IOException;
 
+import org.bukkit.ChatColor;
+
 import com.gravypod.Dosh.CommandHandler;
-import com.gravypod.Dosh.Settings;
+import com.gravypod.Dosh.Dosh;
 
 public class Save {
 	
 	public Save() {
 	
 		try {
-			Settings.moneyStore.save(Settings.moneyStoreFile);
+			
+			Dosh.getSettings().moneyStore.save(Dosh.getSettings().moneyStoreFile);
+			CommandHandler.sender.sendMessage(ChatColor.AQUA + "You have saved the money file");
+			
 		} catch (IOException e) {
 			CommandHandler.sender.sendMessage("There was an error: " + e.toString());
 		}

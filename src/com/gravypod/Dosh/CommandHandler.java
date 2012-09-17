@@ -4,6 +4,8 @@ import org.apache.commons.lang.WordUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.*;
 
+import com.gravypod.Dosh.commands.Bal;
+
 public class CommandHandler implements CommandExecutor {
 	
 	static Dosh plugin;
@@ -22,7 +24,7 @@ public class CommandHandler implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String cmd, String[] args) {
 	
 		if (args.length < 1) {
-			help(sender);
+			new Bal();
 			return true;
 		}
 		
@@ -56,7 +58,7 @@ public class CommandHandler implements CommandExecutor {
 			
 		}
 		
-		help(sender);
+		new Bal();
 		
 		return true;
 		

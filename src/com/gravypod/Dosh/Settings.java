@@ -7,10 +7,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class Settings {
 	
-	public static String moneyName = "MCD";
-	public static String moneySymbol = "$";
-	public static Float startingBal = 10.00F;
-	public static FileConfiguration moneyStore;
-	public static File moneyStoreFile;
+	public String moneyName = "MCD";
+	public String moneySymbol = "$";
+	public Float startingBal = 10.00F;
+	public FileConfiguration moneyStore;
+	public File moneyStoreFile;
 	
 }

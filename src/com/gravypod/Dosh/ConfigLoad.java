@@ -15,9 +15,12 @@ public class ConfigLoad {
 	static File configFile;
 	
 	static File moneyStoreFile;
+
+	static Settings settings;
 	
-	public ConfigLoad(Dosh _plugin, File _configFile, File _moneyStore) {
-	
+	public ConfigLoad(Dosh _plugin, Settings _settings, File _configFile, File _moneyStore) {
+		
+		settings = _settings;
 		plugin = _plugin;
 		configFile = _configFile;
 		moneyStoreFile = _moneyStore;
@@ -37,9 +40,9 @@ public class ConfigLoad {
 			e.printStackTrace();
 		} finally {
 			
-			Settings.moneyName = cheapConfig.getString("Dosh.MoneyName");
-			Settings.moneySymbol = cheapConfig.getString("Dosh.MoneySymbol");
-			Settings.startingBal = Float.parseFloat(cheapConfig.getString("Dosh.StartingBal"));
+			settings.moneyName = cheapConfig.getString("Dosh.MoneyName");
+			settings.moneySymbol = cheapConfig.getString("Dosh.MoneySymbol");
+			settings.startingBal = Float.parseFloat(cheapConfig.getString("Dosh.StartingBal"));
 			
 			try {
 				cheapConfig.save(configFile);
@@ -59,8 +62,8 @@ public class ConfigLoad {
 			e.printStackTrace();
 		} finally {
 			
-			Settings.moneyStoreFile = moneyStoreFile;
-			Settings.moneyStore = moneyStore;
+			settings.moneyStoreFile = moneyStoreFile;
+			settings.moneyStore = moneyStore;
 			
 		}
 		

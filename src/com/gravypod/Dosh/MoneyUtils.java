@@ -33,15 +33,22 @@ public abstract class MoneyUtils {
 	}
 	
 	public static void setUserBal(String name, Float amount) {
-		Settings.moneyStore.set("users." + name, Float.toString(amount));
+		Dosh.getSettings().moneyStore.set("users." + name, Float.toString(amount));
 	}
 	
 	public static void addUserBal(String name, Float amount) {
-		Settings.moneyStore.set("users." + name, Float.toString(Float.parseFloat(Settings.moneyStore.getString("users." + name)) + amount));
+		Dosh.getSettings().moneyStore.set("users." + name, Float.toString(Float.parseFloat(Dosh.getSettings().moneyStore.getString("users." + name)) + amount));
 	}
 	
 	public static Float getUserBal(String name) {
-		return Float.parseFloat(Settings.moneyStore.getString("users." + name));
+		return Float.parseFloat(Dosh.getSettings().moneyStore.getString("users." + name));
+	}
+	
+	public static void makeAccount(String name) {
+		
+		if (!Dosh.getSettings().moneyStore.contains("user." + name))
+			setUserBal(name, Dosh.getSettings().startingBal);
+		
 	}
 	
 	/**

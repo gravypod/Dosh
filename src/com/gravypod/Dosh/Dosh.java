@@ -16,6 +16,8 @@ public class Dosh extends JavaPlugin {
 	
 	static Dosh dosh;
 	
+	private static Settings settings;
+	
 	public static String classPath = "com.gravypod.Dosh.commands.";
 	
 	@Override
@@ -23,9 +25,11 @@ public class Dosh extends JavaPlugin {
 		
 		dosh = this;
 		
+		setSettings(new Settings());
+		
 		setCommands(ListClasses.getClasseNamesInPackage(this.getFile().getAbsolutePath(), "com.gravypod.Dosh.commands."));
 		
-		configHandle = new ConfigHandle(this);
+		configHandle = new ConfigHandle(this, settings);
 		
 		getCommand("money").setExecutor(new CommandHandler(this));
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
@@ -36,7 +40,7 @@ public class Dosh extends JavaPlugin {
 	public void onDisable() {
 	
 		try {
-			Settings.moneyStore.save(Settings.moneyStoreFile);
+			settings.moneyStore.save(settings.moneyStoreFile);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -62,6 +66,22 @@ public class Dosh extends JavaPlugin {
 	private void setCommands(List<String> commands) {
 	
 		this.commands = commands;
+	}
+
+	/**
+	 * @return the settings
+	 */
+	public static Settings getSettings() {
+	
+		return settings;
+	}
+
+	/**
+	 * @param settings the settings to set
+	 */
+	public void setSettings(Settings settings) {
+	
+		Dosh.settings = settings;
 	}
 	
 }
