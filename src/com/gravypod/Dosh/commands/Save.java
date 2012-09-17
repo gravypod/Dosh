@@ -17,7 +17,7 @@ public class Save {
 			CommandHandler.sender.sendMessage(ChatColor.AQUA + "You have saved the money file");
 			
 		} catch (IOException e) {
-			CommandHandler.sender.sendMessage("There was an error: " + e.toString());
+			CommandHandler.sender.sendMessage(ChatColor.AQUA + "There was an error: " + e.toString());
 		}
 		
 	}

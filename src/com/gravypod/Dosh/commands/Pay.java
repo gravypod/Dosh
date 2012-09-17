@@ -1,5 +1,6 @@
 package com.gravypod.Dosh.commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -20,10 +21,20 @@ public class Pay extends MoneyUtils {
 		Float amount = Float.parseFloat(CommandHandler.args[2]);
 		CommandSender sender = CommandHandler.sender;
 		
+		if (toSend == null) {
+			CommandHandler.sender.sendMessage(ChatColor.RED + "There is not a player on with that name.");
+			return;
+		}
+		
+		if (amount == null) {
+			CommandHandler.sender.sendMessage(ChatColor.RED + "There is not a real money amount.");
+			return;
+		}
+		
 		if (payMoney(CommandHandler.sender.getName(), toSend.getName(), amount)) {
 			
-			sender.sendMessage("You have sent " + Dosh.getSettings().moneySymbol + amount + " " + Dosh.getSettings().moneyName + " to " + toSend.getName());
-			toSend.sendMessage("You have recived " + Dosh.getSettings().moneySymbol + amount + " " + Dosh.getSettings().moneyName + " from " + sender.getName());
+			sender.sendMessage(ChatColor.AQUA + "You have sent " + Dosh.getSettings().moneySymbol + amount + " " + Dosh.getSettings().moneyName + " to " + toSend.getName());
+			toSend.sendMessage(ChatColor.AQUA + "You have recived " + Dosh.getSettings().moneySymbol + amount + " " + Dosh.getSettings().moneyName + " from " + sender.getName());
 			
 		}
 	}
