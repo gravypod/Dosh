@@ -15,11 +15,11 @@ public class ConfigLoad {
 	static File configFile;
 	
 	static File moneyStoreFile;
-
+	
 	static Settings settings;
 	
 	public ConfigLoad(Dosh _plugin, Settings _settings, File _configFile, File _moneyStore) {
-		
+	
 		settings = _settings;
 		plugin = _plugin;
 		configFile = _configFile;
@@ -49,11 +49,10 @@ public class ConfigLoad {
 			} catch (IOException e) {
 			}
 			
-			
 		}
 		
 		FileConfiguration moneyStore = new YamlConfiguration();
-				
+		
 		try {
 			
 			moneyStore.load(moneyStoreFile);

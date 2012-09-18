@@ -11,7 +11,7 @@ import com.gravypod.Dosh.MoneyUtils;
 public class Pay extends MoneyUtils {
 	
 	public Pay() {
-		
+	
 		if (!(CommandHandler.args.length == 3)) {
 			CommandHandler.help(CommandHandler.sender);
 			return;

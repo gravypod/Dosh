@@ -11,8 +11,11 @@ public class CommandHandler implements CommandExecutor {
 	static Dosh plugin;
 	
 	public static CommandSender sender;
+	
 	public static Command command;
+	
 	public static String cmd;
+	
 	public static String[] args;
 	
 	public CommandHandler(Dosh _plugin) {
@@ -22,7 +25,7 @@ public class CommandHandler implements CommandExecutor {
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String cmd, String[] args) {
-		
+	
 		CommandHandler.sender = sender;
 		CommandHandler.command = command;
 		CommandHandler.cmd = cmd;
@@ -45,7 +48,7 @@ public class CommandHandler implements CommandExecutor {
 			try {
 				
 				Class.forName(Dosh.classPath + argument).newInstance();
-					
+				
 				return true;
 				
 			} catch (Exception e) {
@@ -65,7 +68,7 @@ public class CommandHandler implements CommandExecutor {
 	}
 	
 	public static void help(CommandSender sender) {
-		
+	
 		sender.sendMessage(ChatColor.AQUA + "/money help - This :P");
 		
 		if (sender.hasPermission("Dosh.user")) {

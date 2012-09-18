@@ -22,7 +22,7 @@ public class Dosh extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		
+	
 		dosh = this;
 		
 		setSettings(new Settings());
@@ -67,7 +67,7 @@ public class Dosh extends JavaPlugin {
 	
 		this.commands = commands;
 	}
-
+	
 	/**
 	 * @return the settings
 	 */
@@ -75,9 +75,10 @@ public class Dosh extends JavaPlugin {
 	
 		return settings;
 	}
-
+	
 	/**
-	 * @param settings the settings to set
+	 * @param settings
+	 *            the settings to set
 	 */
 	public void setSettings(Settings settings) {
 	

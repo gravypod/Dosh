@@ -16,7 +16,7 @@ public class Bal extends MoneyUtils {
 			return;
 		}
 		
-		CommandHandler.sender.sendMessage( ChatColor.AQUA + "You currently have " + Dosh.getSettings().moneySymbol + Float.toString(getUserBal(CommandHandler.sender.getName())) + " " + Dosh.getSettings().moneyName);
+		CommandHandler.sender.sendMessage(ChatColor.AQUA + "You currently have " + Dosh.getSettings().moneySymbol + Float.toString(getUserBal(CommandHandler.sender.getName())) + " " + Dosh.getSettings().moneyName);
 		
 	}
 	
