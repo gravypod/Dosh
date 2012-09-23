@@ -10,24 +10,29 @@ public class Set extends MoneyUtils {
 	
 	public Set() {
 	
-		Player setee = matchName(matchPlayer(CommandHandler.args[1]));
-		
-		if (setee == null) {
-			CommandHandler.sender.sendMessage(ChatColor.RED + "There is not a player on with that name");
-			return;
+		try {
+			
+			Player setee = matchName(matchPlayer(CommandHandler.args[1]));
+			
+			if (setee == null) {
+				CommandHandler.sender.sendMessage(ChatColor.RED + "There is not a player on with that name");
+				return;
+			}
+			
+			Float amount = Float.parseFloat(CommandHandler.args[2]);
+			
+			if (amount == null) {
+				CommandHandler.sender.sendMessage(ChatColor.RED + "There is not a real money amount.");
+				return;
+			}
+			
+			setUserBal(setee.getName(), Double.parseDouble(CommandHandler.args[2]));
+			CommandHandler.sender.sendMessage(ChatColor.AQUA + "Your have set " + setee.getName() + "'s balance to " + amount + "!");
+			setee.sendMessage(ChatColor.AQUA + CommandHandler.sender.getName() + " has set your balance to " + amount + "!");
+
+		} catch (Exception e) {
+			CommandHandler.sender.sendMessage(ChatColor.RED + "There was a problem with your command syntax");
 		}
-		
-		Float amount = Float.parseFloat(CommandHandler.args[2]);
-		
-		if (amount == null) {
-			CommandHandler.sender.sendMessage(ChatColor.RED + "There is not a real money amount.");
-			return;
-		}
-		
-		setUserBal(setee.getName(), Float.parseFloat(CommandHandler.args[2]));
-		CommandHandler.sender.sendMessage(ChatColor.AQUA + "Your have set " + setee.getName() + "'s balance to " + amount + "!");
-		setee.sendMessage(ChatColor.AQUA + CommandHandler.sender.getName() + " has set your balance to " + amount + "!");
-		
 	}
 	
 }

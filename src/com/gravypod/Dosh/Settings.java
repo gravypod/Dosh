@@ -10,7 +10,7 @@ public class Settings {
 	
 	public String moneySymbol = "$";
 	
-	public Float startingBal = 10.00F;
+	public Double startingBal = 10.00D;
 	
 	public FileConfiguration moneyStore;
 	

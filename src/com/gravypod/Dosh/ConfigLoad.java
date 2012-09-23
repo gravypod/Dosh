@@ -42,7 +42,7 @@ public class ConfigLoad {
 			
 			settings.moneyName = cheapConfig.getString("Dosh.MoneyName");
 			settings.moneySymbol = cheapConfig.getString("Dosh.MoneySymbol");
-			settings.startingBal = Float.parseFloat(cheapConfig.getString("Dosh.StartingBal"));
+			settings.startingBal = cheapConfig.getDouble("Dosh.StartingBal");
 			
 			try {
 				cheapConfig.save(configFile);

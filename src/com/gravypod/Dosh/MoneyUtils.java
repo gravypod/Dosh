@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 
 public abstract class MoneyUtils {
 	
-	public static boolean payMoney(String sender, String receiver, Float amount) {
+	public static boolean payMoney(String sender, String receiver, Double amount) {
 	
 		if (!subtractMoney(sender, amount))
 			return false;
@@ -17,10 +17,10 @@ public abstract class MoneyUtils {
 		
 	}
 	
-	public static boolean subtractMoney(String name, Float amount) {
+	public static boolean subtractMoney(String name, Double amount) {
 	
-		Float currentBal = getUserBal(name);
-		Float afterSubtract = currentBal - amount;
+		Double currentBal = getUserBal(name);
+		Double afterSubtract = currentBal - amount;
 		
 		if (afterSubtract < 0F) {
 			return false;
@@ -32,19 +32,20 @@ public abstract class MoneyUtils {
 		
 	}
 	
-	public static void setUserBal(String name, Float amount) {
+	public static void setUserBal(String name, Double amount) {
 	
-		Dosh.getSettings().moneyStore.set("users." + name, Float.toString(amount));
+		Dosh.getSettings().moneyStore.set("users." + name, amount);
 	}
 	
-	public static void addUserBal(String name, Float amount) {
+	public static void addUserBal(String name, Double amount) {
 	
-		Dosh.getSettings().moneyStore.set("users." + name, Float.toString(Float.parseFloat(Dosh.getSettings().moneyStore.getString("users." + name)) + amount));
+		Dosh.getSettings().moneyStore.set("users." + name, Dosh.getSettings().moneyStore.getString("users." + name) + amount);
 	}
 	
-	public static Float getUserBal(String name) {
+	public static Double getUserBal(String name) {
 	
-		return Float.parseFloat(Dosh.getSettings().moneyStore.getString("users." + name));
+		return Dosh.getSettings().moneyStore.getDouble("users." + name);
+		
 	}
 	
 	public static void makeAccount(String name) {
