@@ -14,7 +14,7 @@ public class Dosh extends JavaPlugin {
 	
 	ConfigHandle configHandle;
 	
-	static Dosh dosh;
+	public static Dosh dosh;
 	
 	private static Settings settings;
 	
